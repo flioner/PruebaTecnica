@@ -50,6 +50,26 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange }) => {
     console.log("Form submitted:", data);
   };
 
+  const hasErrors = () => {
+    const visibleErrors: string[] = [];
+
+    if (errors.rfc) visibleErrors.push("rfc");
+
+    if (isFisica) {
+      if (errors.name) visibleErrors.push("name");
+      if (errors.surname) visibleErrors.push("surname");
+      if (errors.birthdate) visibleErrors.push("birthdate");
+    }
+
+    if (!isFisica) {
+      if (errors.commercialName) visibleErrors.push("commercialName");
+      if (errors.incorporationDate) visibleErrors.push("incorporationDate");
+      if (errors.businessType) visibleErrors.push("businessType");
+    }
+
+    return visibleErrors.length > 0;
+  };
+
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
       <ModalContent>
@@ -205,11 +225,7 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange }) => {
               <Button color="danger" variant="light" onPress={onClose}>
                 Close
               </Button>
-              <Button
-                color="primary"
-                type="submit"
-                isDisabled={Object.keys(errors).length > 0}
-              >
+              <Button color="primary" type="submit" isDisabled={hasErrors()}>
                 Submit
               </Button>
             </ModalFooter>
