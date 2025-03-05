@@ -20,7 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({
         <button
           className={`transition-all duration-300 ${
             selectedTable === "fisica"
-              ? "text-blue-500 text-white"
+              ? "text-blue-500"
               : "text-gray-400 hover:text-black"
           }`}
           onClick={() => setSelectedTable("fisica")}
@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({
         <button
           className={`transition-all duration-300 ${
             selectedTable === "moral"
-              ? "text-blue-500 text-white"
+              ? "text-blue-500"
               : "text-gray-400 hover:text-black"
           }`}
           onClick={() => setSelectedTable("moral")}

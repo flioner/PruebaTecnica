@@ -4692,11 +4692,12 @@ natural-compare@^1.4.0:
     "@heroui/theme" "2.4.9"
     "@react-aria/ssr" "3.9.7"
     "@react-aria/visually-hidden" "3.8.19"
+    "@react-stately/data" "^3.12.1"
     clsx "2.1.1"
     framer-motion "11.13.1"
     intl-messageformat "^10.5.0"
     next "15.0.4"
-    next-app-template "file:../../AppData/Local/Yarn/Cache/v6/npm-next-app-template-0.0.1-111f6d4d-9ef7-4fd6-8a2a-277303c8f29f-1741209540476/node_modules/next-app-template"
+    next-app-template "file:../../AppData/Local/Yarn/Cache/v6/npm-next-app-template-0.0.1-5f5efc97-9064-407b-a98f-29f2d5e83661-1741213734465/node_modules/next-app-template"
     next-themes "^0.4.4"
     react "18.3.1"
     react-dom "18.3.1"
@@ -5040,6 +5041,11 @@ react-dom@18.3.1:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.2"
+
+react-hook-form@^7.54.2:
+  version "7.54.2"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.54.2.tgz#8c26ed54c71628dff57ccd3c074b1dd377cfb211"
+  integrity sha512-eHpAUgUjWbZocoQYUHposymRb4ZP6d0uwUnooL2uOybA9/3tPUvoAKqEWK1WaSiTxxOfTpffNZP7QwlnM3/gEg==
 
 react-is@^16.13.1:
   version "16.13.1"
