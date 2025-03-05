@@ -1,11 +1,5 @@
-// Form.tsx
 import React from "react";
-import {
-  useForm,
-  Controller,
-  SubmitHandler,
-  FieldError,
-} from "react-hook-form";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import {
   Modal,
   ModalContent,
@@ -15,8 +9,8 @@ import {
   Button,
   Input,
 } from "@heroui/react";
-import { rules } from "./rules"; // Import the single rules object
-
+import { rules } from "./rules";
+import api from "@/app/api/api";
 interface FormProps {
   isOpen: boolean;
   onOpenChange: (isOpen: boolean) => void;
@@ -47,6 +41,15 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange }) => {
   const isRfcComplete = rfcValue?.length >= 10;
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
+    if (isFisica) {
+      const fisicaData = {
+        name: data.name ?? "",
+        surname: data.surname ?? "",
+        birthdate: data.birthdate ?? "",
+        rfc: data.rfc ?? "",
+      };
+      api.addFisicaData(fisicaData);
+    }
     console.log("Form submitted:", data);
   };
 
@@ -78,6 +81,7 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange }) => {
             <ModalHeader>Añadir Usuario</ModalHeader>
             <ModalBody className="flex flex-col gap-4">
               <Controller
+                /* Primer Input Esencial: RFC */
                 name="rfc"
                 control={control}
                 rules={rules.rfc}
@@ -98,10 +102,10 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange }) => {
                 )}
               />
 
-              {/* Conditionally Render Fields Based on RFC */}
-              {isRfcComplete && (
+              {isRfcComplete /* Si ya llenó el RFC sabemos si es persona Fisica o Moral */ && (
                 <div className="flex flex-col gap-4">
                   {isFisica ? (
+                    /* Para Persona Fisica */
                     <>
                       <Controller
                         name="name"
@@ -158,6 +162,7 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange }) => {
                       />
                     </>
                   ) : (
+                    /* Para Persona Moral */
                     <>
                       <Controller
                         name="commercialName"

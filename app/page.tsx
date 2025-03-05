@@ -5,10 +5,12 @@ import MoralTable from "./components/dataTable/moralTable";
 import Navbar from "./components/navigation/navbar";
 import Form from "./components/form/form";
 import { useDisclosure } from "@heroui/react";
+import { InitializeAPI } from "./api/apiInitialization";
 
 export default function Home() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  InitializeAPI();
 
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [selectedTable, setSelectedTable] = useState<"fisica" | "moral">(
     "fisica"
   );

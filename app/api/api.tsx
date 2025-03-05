@@ -1,103 +1,65 @@
 // api.tsx
-const moralData = [
-  {
-    key: "1",
-    commercialName: "Tech Solutions",
-    incorporationDate: "2010-06-25",
-    businessType: "Software Development",
-    rfc: "TSO100625ABC",
-  },
-  {
-    key: "2",
-    commercialName: "Green Energy Co.",
-    incorporationDate: "2015-09-10",
-    businessType: "Renewable Energy",
-    rfc: "GEC150910XYZ",
-  },
-  {
-    key: "3",
-    commercialName: "HealthFirst",
-    incorporationDate: "2012-03-18",
-    businessType: "Healthcare Services",
-    rfc: "HFI120318LMN",
-  },
-  {
-    key: "4",
-    commercialName: "AutoMotive Plus",
-    incorporationDate: "2008-11-05",
-    businessType: "Automobile Manufacturing",
-    rfc: "AMP081105DEF",
-  },
-];
 
-const fisicaData = [
-  {
-    key: "1",
-    name: "TonyF",
-    surname: "Reichert",
-    birthdate: "1980-05-12",
-    rfc: "TRC800512XXX",
-  },
-  {
-    key: "2",
-    name: "Zoey",
-    surname: "Lang",
-    birthdate: "1990-08-15",
-    rfc: "ZLG900815XXX",
-  },
-  {
-    key: "3",
-    name: "Jane",
-    surname: "Fisher",
-    birthdate: "1985-11-30",
-    rfc: "JFS851130XXX",
-  },
-  {
-    key: "4",
-    name: "William",
-    surname: "Howard",
-    birthdate: "1978-03-22",
-    rfc: "WHH780322XXX",
-  },
-];
+const getDataFromLocalStorage = (key: string) => {
+  const storedData = localStorage.getItem(key);
+  return storedData ? JSON.parse(storedData) : [];
+};
+
+const setDataToLocalStorage = (key: string, data: any) => {
+  localStorage.setItem(key, JSON.stringify(data));
+};
 
 const api = {
-  /* Mock API for PersonaMoral*/
-  getMoralData: () => moralData,
+  /* Mock API for PersonaMoral */
+  getMoralData: () => {
+    return getDataFromLocalStorage("moralData");
+  },
 
   addMoralData: (newData: {
-    key: string;
     commercialName: string;
     incorporationDate: string;
     businessType: string;
     rfc: string;
   }) => {
-    moralData.push(newData);
+    const moralData = getDataFromLocalStorage("moralData");
+    const newKey = (moralData.length + 1).toString();
+    const dataWithKey = { ...newData, key: newKey };
+    moralData.push(dataWithKey);
+    setDataToLocalStorage("moralData", moralData);
     return moralData;
   },
 
   removeData: (key: string) => {
-    const updatedData = moralData.filter((item) => item.key !== key);
-    return updatedData;
+    let moralData = getDataFromLocalStorage("moralData");
+    moralData = moralData.filter((item: { key: string }) => item.key !== key);
+    setDataToLocalStorage("moralData", moralData);
+    return moralData;
   },
 
-  /* Mock API for PersonaMoral*/
-  getFisicaData: () => fisicaData,
+  /* Mock API for PersonaFisica */
+  getFisicaData: () => {
+    return getDataFromLocalStorage("fisicaData");
+  },
 
   addFisicaData: (newData: {
-    key: string;
     name: string;
     surname: string;
     birthdate: string;
     rfc: string;
   }) => {
-    fisicaData.push(newData);
+    const fisicaData = getDataFromLocalStorage("fisicaData");
+    const newKey = (fisicaData.length + 1).toString();
+    const dataWithKey = { ...newData, key: newKey };
+    fisicaData.push(dataWithKey);
+    setDataToLocalStorage("fisicaData", fisicaData);
     return fisicaData;
   },
 
   removeFisicaData: (key: string) => {
-    const updatedData = fisicaData.filter((item) => item.key !== key);
-    return updatedData;
+    let fisicaData = getDataFromLocalStorage("fisicaData");
+    fisicaData = fisicaData.filter((item: { key: string }) => item.key !== key);
+    setDataToLocalStorage("fisicaData", fisicaData);
+    return fisicaData;
   },
 };
 
