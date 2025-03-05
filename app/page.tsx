@@ -11,17 +11,17 @@ export default function Home() {
 
   return (
     <div>
-      <div className="p-5 flex justify-between items-center bg-red-200">
+      <div className="p-5 flex justify-between items-center">
         <div>Prueba Técnica</div>
         <div className="flex gap-3">
           <button
-            className={`${selectedTable === "fisica" ? "text-blue-500 text-white" : "text-gray-800"}`}
+            className={`transition-all duration-300  ${selectedTable === "fisica" ? "text-blue-500 text-white" : "text-gray-400 hover:text-black"}`}
             onClick={() => setSelectedTable("fisica")}
           >
             Fisica
           </button>
           <button
-            className={` ${selectedTable === "moral" ? "text-blue-500 text-white" : "text-gray-800"}`}
+            className={`transition-all duration-300  ${selectedTable === "moral" ? "text-blue-500 text-white" : "text-gray-400 hover:text-black"}`}
             onClick={() => setSelectedTable("moral")}
           >
             Moral
