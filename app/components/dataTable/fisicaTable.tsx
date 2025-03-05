@@ -3,45 +3,40 @@ import React from "react";
 import DataTable from "./dataTable";
 
 const columns = [
-  { key: "name", label: "Name" },
-  { key: "surname", label: "Surname" },
-  { key: "birthdate", label: "Date of Birth" },
-  { key: "role", label: "Role" },
-  { key: "status", label: "Status" },
+  { key: "name", label: "Nombre" },
+  { key: "surname", label: "Apellidos" },
+  { key: "birthdate", label: "Fecha de nacimiento" },
+  { key: "rfc", label: "RFC" },
 ];
 
 const data = [
   {
     key: "1",
-    name: "TonyF",
+    name: "Tony",
     surname: "Reichert",
     birthdate: "1980-05-12",
-    role: "CEO",
-    status: "Active",
+    rfc: "TRC800512XXX",
   },
   {
     key: "2",
-    name: "ZoeyF",
+    name: "Zoey",
     surname: "Lang",
     birthdate: "1990-08-15",
-    role: "Technical Lead",
-    status: "Paused",
+    rfc: "ZLG900815XXX",
   },
   {
     key: "3",
-    name: "JaneF",
+    name: "Jane",
     surname: "Fisher",
     birthdate: "1985-11-30",
-    role: "Senior Developer",
-    status: "Active",
+    rfc: "JFS851130XXX",
   },
   {
     key: "4",
-    name: "WilliamF",
+    name: "William",
     surname: "Howard",
     birthdate: "1978-03-22",
-    role: "Community Manager",
-    status: "Vacation",
+    rfc: "WHH780322XXX",
   },
 ];
 

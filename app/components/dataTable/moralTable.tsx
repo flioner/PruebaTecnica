@@ -3,45 +3,35 @@ import React from "react";
 import DataTable from "./dataTable";
 
 const columns = [
-  { key: "name", label: "Name" },
-  { key: "surname", label: "Surname" },
-  { key: "birthdate", label: "Date of Birth" },
-  { key: "role", label: "Role" },
-  { key: "status", label: "Status" },
+  { key: "commercialName", label: "Nombre comercial" },
+  { key: "incorporationDate", label: "Fecha de constitución" },
+  { key: "businessType", label: "Giro" },
 ];
 
 const data = [
   {
     key: "1",
-    name: "Tony",
-    surname: "Reichert",
-    birthdate: "1980-05-12",
-    role: "CEO",
-    status: "Active",
+    commercialName: "Tech Solutions",
+    incorporationDate: "2010-06-25",
+    businessType: "Software Development",
   },
   {
     key: "2",
-    name: "Zoey",
-    surname: "Lang",
-    birthdate: "1990-08-15",
-    role: "Technical Lead",
-    status: "Paused",
+    commercialName: "Green Energy Co.",
+    incorporationDate: "2015-09-10",
+    businessType: "Renewable Energy",
   },
   {
     key: "3",
-    name: "Jane",
-    surname: "Fisher",
-    birthdate: "1985-11-30",
-    role: "Senior Developer",
-    status: "Active",
+    commercialName: "HealthFirst",
+    incorporationDate: "2012-03-18",
+    businessType: "Healthcare Services",
   },
   {
     key: "4",
-    name: "William",
-    surname: "Howard",
-    birthdate: "1978-03-22",
-    role: "Community Manager",
-    status: "Vacation",
+    commercialName: "AutoMotive Plus",
+    incorporationDate: "2008-11-05",
+    businessType: "Automobile Manufacturing",
   },
 ];
 

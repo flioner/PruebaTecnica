@@ -27,7 +27,7 @@ export default function Home() {
             Moral
           </button>
         </div>
-        <Button color="primary">Button</Button>
+        <Button color="primary">Añadir Usuario</Button>
       </div>
 
       <div className="p-5">
