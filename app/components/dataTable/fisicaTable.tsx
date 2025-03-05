@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import DataTable from "./dataTable";
-import api from "@/app/api/api";
 
 const columns = [
   { key: "name", label: "Nombre" },
@@ -10,8 +9,16 @@ const columns = [
   { key: "rfc", label: "RFC" },
 ];
 
-const data = api.getFisicaData();
+interface FisicaTableProps {
+  data: Array<{
+    key: string;
+    name: string;
+    surname: string;
+    birthdate: string;
+    rfc: string;
+  }>;
+}
 
-export default function FisicaTable() {
+export default function FisicaTable({ data }: FisicaTableProps) {
   return <DataTable columns={columns} data={data} />;
 }

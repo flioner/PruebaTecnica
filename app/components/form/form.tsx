@@ -49,11 +49,20 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange }) => {
         rfc: data.rfc ?? "",
       };
       api.addFisicaData(fisicaData);
+    } else {
+      const moralData = {
+        commercialName: data.commercialName ?? "",
+        incorporationDate: data.incorporationDate ?? "",
+        businessType: data.businessType ?? "",
+        rfc: data.rfc ?? "",
+      };
+      api.addMoralData(moralData);
     }
-    console.log("Form submitted:", data);
+    onOpenChange(false);
   };
 
   const hasErrors = () => {
+    /* Checa si hay errores, se usa para habilitar y deshabilitar el boton de sumbit*/
     const visibleErrors: string[] = [];
 
     if (errors.rfc) visibleErrors.push("rfc");

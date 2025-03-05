@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import DataTable from "./dataTable";
-import api from "@/app/api/api";
+
 const columns = [
   { key: "commercialName", label: "Nombre comercial" },
   { key: "incorporationDate", label: "Fecha de constitución" },
@@ -9,8 +9,16 @@ const columns = [
   { key: "rfc", label: "RFC" },
 ];
 
-const data = api.getMoralData();
+interface MoralTableProps {
+  data: Array<{
+    key: string;
+    commercialName: string;
+    incorporationDate: string;
+    businessType: string;
+    rfc: string;
+  }>;
+}
 
-export default function MoralTable() {
+export default function MoralTable({ data }: MoralTableProps) {
   return <DataTable columns={columns} data={data} />;
 }

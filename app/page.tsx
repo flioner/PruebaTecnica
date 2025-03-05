@@ -6,6 +6,7 @@ import Navbar from "./components/navigation/navbar";
 import Form from "./components/form/form";
 import { useDisclosure } from "@heroui/react";
 import { InitializeAPI } from "./api/apiInitialization";
+import api from "./api/api";
 
 export default function Home() {
   InitializeAPI();
@@ -15,16 +16,23 @@ export default function Home() {
     "fisica"
   );
 
+  const moralData = api.getMoralData();
+  const fisicaData = api.getFisicaData();
+
   return (
     <div>
       <Navbar
         selectedTable={selectedTable}
         setSelectedTable={setSelectedTable}
-        onOpen={onOpen}
+        onOpen={onOpen} /* Controla al Modal de Agregar Usuario*/
       />
 
       <div className="p-5">
-        {selectedTable === "fisica" ? <FisicaTable /> : <MoralTable />}
+        {selectedTable === "fisica" ? (
+          <FisicaTable data={fisicaData} />
+        ) : (
+          <MoralTable data={moralData} />
+        )}
       </div>
 
       <Form isOpen={isOpen} onOpenChange={onOpenChange} />

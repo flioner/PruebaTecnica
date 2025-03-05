@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({
           Moral
         </button>
       </div>
-      <Button onClick={onOpen} color="primary">
+      <Button onPress={onOpen} color="primary">
         Añadir Usuario +
       </Button>
     </div>
