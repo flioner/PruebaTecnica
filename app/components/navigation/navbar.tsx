@@ -5,9 +5,14 @@ import { Button } from "@heroui/button";
 interface NavbarProps {
   selectedTable: "fisica" | "moral";
   setSelectedTable: React.Dispatch<React.SetStateAction<"fisica" | "moral">>;
+  onOpen: any;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ selectedTable, setSelectedTable }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  selectedTable,
+  setSelectedTable,
+  onOpen,
+}) => {
   return (
     <div className="p-5 flex justify-between items-center">
       <div>Prueba Técnica</div>
@@ -33,7 +38,9 @@ const Navbar: React.FC<NavbarProps> = ({ selectedTable, setSelectedTable }) => {
           Moral
         </button>
       </div>
-      <Button color="primary">Añadir Usuario +</Button>
+      <Button onClick={onOpen} color="primary">
+        Añadir Usuario +
+      </Button>
     </div>
   );
 };
