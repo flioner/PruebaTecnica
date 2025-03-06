@@ -14,6 +14,9 @@ import api from "@/app/api/api";
 interface FormProps {
   isOpen: boolean;
   onOpenChange: (isOpen: boolean) => void;
+  setRefetch: React.Dispatch<
+    React.SetStateAction<{ modifiedTable: string; shouldRefresh: boolean }>
+  >;
 }
 
 interface FormData {
@@ -26,7 +29,7 @@ interface FormData {
   businessType?: string;
 }
 
-const Form: React.FC<FormProps> = ({ isOpen, onOpenChange }) => {
+const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
   const {
     control,
     handleSubmit,
@@ -48,7 +51,9 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange }) => {
         birthdate: data.birthdate ?? "",
         rfc: data.rfc ?? "",
       };
+
       api.addFisicaData(fisicaData);
+      setRefetch({ modifiedTable: "fisica", shouldRefresh: true });
     } else {
       const moralData = {
         commercialName: data.commercialName ?? "",
@@ -56,8 +61,11 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange }) => {
         businessType: data.businessType ?? "",
         rfc: data.rfc ?? "",
       };
+      setRefetch({ modifiedTable: "moral", shouldRefresh: true });
+
       api.addMoralData(moralData);
     }
+    console.log("refetching");
     onOpenChange(false);
   };
 
