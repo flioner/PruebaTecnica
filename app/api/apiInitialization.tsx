@@ -63,15 +63,19 @@ const fisicaData = [
 ];
 
 export const InitializeAPI = () => {
-  const isInitialized = localStorage.getItem("apiInitialization");
+  if (typeof window !== "undefined" && window.localStorage) {
+    const isInitialized = localStorage.getItem("apiInitialization");
 
-  if (!isInitialized) {
-    localStorage.setItem("moralData", JSON.stringify(moralData));
-    localStorage.setItem("fisicaData", JSON.stringify(fisicaData));
+    if (!isInitialized) {
+      localStorage.setItem("moralData", JSON.stringify(moralData));
+      localStorage.setItem("fisicaData", JSON.stringify(fisicaData));
 
-    localStorage.setItem("apiInitialization", "true");
-    console.log("API initialization data has been set in localStorage.");
+      localStorage.setItem("apiInitialization", "true");
+      console.log("API initialization data has been set in localStorage.");
+    } else {
+      console.log("API has already been initialized.");
+    }
   } else {
-    console.log("API has already been initialized.");
+    console.log("localStorage is not available.");
   }
 };

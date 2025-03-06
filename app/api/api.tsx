@@ -1,12 +1,19 @@
 // api.tsx
 
+const isBrowser = typeof window !== "undefined" && window.localStorage;
+
 const getDataFromLocalStorage = (key: string) => {
-  const storedData = localStorage.getItem(key);
-  return storedData ? JSON.parse(storedData) : [];
+  if (isBrowser) {
+    const storedData = localStorage.getItem(key);
+    return storedData ? JSON.parse(storedData) : [];
+  }
+  return [];
 };
 
 const setDataToLocalStorage = (key: string, data: any) => {
-  localStorage.setItem(key, JSON.stringify(data));
+  if (isBrowser) {
+    localStorage.setItem(key, JSON.stringify(data));
+  }
 };
 
 const api = {
