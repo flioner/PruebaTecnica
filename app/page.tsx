@@ -13,12 +13,16 @@ export default function Home() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   /* Sección dedicada al manejo de la API simulada*/
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0); // Se le pone como key a la tabla para forzar un re-render
   const [selectedTable, setSelectedTable] = useState<"fisica" | "moral">(
     "fisica"
-  );
+  ); // Para controlar con botones, o al darle sumbit que tabla estamos viendo
+
+  /* Llamada inicial a la API falsa */
   const [fisicaData, setFisicaData] = useState(api.getFisicaData());
   const [moralData, setMoralData] = useState(api.getMoralData());
+
+  /* Refetch Simulado, en una API de verdad esto estaría en una sola linea*/
   const [refetch, setRefetch] = useState<{
     modifiedTable: string;
     shouldRefresh: boolean;
@@ -32,8 +36,8 @@ export default function Home() {
     if (refetch.shouldRefresh) {
       setCount(count + 1);
       if (refetch.modifiedTable === "fisica") {
-        setFisicaData(api.getFisicaData());
-        setSelectedTable("fisica");
+        setFisicaData(api.getFisicaData()); // Actualizamos Datos
+        setSelectedTable("fisica"); // Mostramos la tabla correcta
       } else if (refetch.modifiedTable === "moral") {
         setMoralData(api.getMoralData());
         setSelectedTable("moral");

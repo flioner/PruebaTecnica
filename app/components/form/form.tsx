@@ -44,6 +44,7 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
   const isRfcComplete = rfcValue?.length >= 10;
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
+    /* Este codigo sería más simple usando una api de verdad*/
     if (isFisica) {
       const fisicaData = {
         name: data.name ?? "",
@@ -61,9 +62,8 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
         businessType: data.businessType ?? "",
         rfc: data.rfc ?? "",
       };
-      setRefetch({ modifiedTable: "moral", shouldRefresh: true });
-
       api.addMoralData(moralData);
+      setRefetch({ modifiedTable: "moral", shouldRefresh: true });
     }
     console.log("refetching");
     onOpenChange(false);
