@@ -11,7 +11,7 @@ import {
   Spinner,
 } from "@heroui/react";
 import { useAsyncList } from "@react-stately/data";
-import { Button } from "@heroui/button";
+import DeleteButton from "./components/deleteButton";
 
 interface RowData {
   key: string;
@@ -75,12 +75,7 @@ export default function DataTable({ columns, data, onDelete }: DataTableProps) {
               ) {
                 return (
                   <TableCell>
-                    <Button
-                      className="w-fit bg-transparent text-red-500"
-                      onPress={() => onDelete(item)}
-                    >
-                      <DeleteIcon />
-                    </Button>
+                    <DeleteButton item={item} onDelete={onDelete} />
                   </TableCell>
                 );
               }

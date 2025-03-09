@@ -48,13 +48,27 @@ export default function Home() {
   /* Fin de Sección de API simualda*/
 
   return (
-    <div className="max-w-[1800px] mx-auto">
+    <div
+      className="max-w-[1800px] mx-auto animate-fadeIn"
+      style={{
+        animationDuration: "1s",
+        animationDelay: "0.5s",
+        animationFillMode: "both",
+      }}
+    >
       <Navbar
         selectedTable={selectedTable}
         setSelectedTable={setSelectedTable}
         onOpen={onOpen} /* Controla al Modal de Agregar Usuario*/
       />
-      <div className="p-5">
+      <div
+        className="animate-fadeIn"
+        style={{
+          animationDuration: "1.5s",
+          animationDelay: "0s",
+          animationFillMode: "both",
+        }}
+      >
         {selectedTable === "fisica" ? (
           <FisicaTable key={count} data={fisicaData} setRefetch={setRefetch} />
         ) : (

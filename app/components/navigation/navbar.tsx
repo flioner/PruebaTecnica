@@ -15,7 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   return (
     <div className="p-5 flex justify-between items-center">
-      <div>Prueba Técnica</div>
+      <div className="font-bold">Prueba Técnica</div>
       <div className="flex gap-3">
         <button
           className={`transition-all duration-300 ${

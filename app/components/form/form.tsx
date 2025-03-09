@@ -102,7 +102,14 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                 control={control}
                 rules={rules.rfc}
                 render={({ field }) => (
-                  <div>
+                  <div
+                    className="animate-fadeIn"
+                    style={{
+                      animationDuration: "0.7s",
+                      animationDelay: "0.s",
+                      animationFillMode: "both",
+                    }}
+                  >
                     <Input
                       {...field}
                       placeholder="Enter RFC"
@@ -127,7 +134,14 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                         control={control}
                         rules={rules.name}
                         render={({ field }) => (
-                          <div>
+                          <div
+                            className="animate-fadeIn"
+                            style={{
+                              animationDuration: "0.8s",
+                              animationDelay: "0.3s",
+                              animationFillMode: "both",
+                            }}
+                          >
                             <Input
                               {...field}
                               placeholder="Nombre"
@@ -146,7 +160,14 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                         control={control}
                         rules={rules.surname}
                         render={({ field }) => (
-                          <div>
+                          <div
+                            className="animate-fadeIn"
+                            style={{
+                              animationDuration: "0.9s",
+                              animationDelay: "0.2s",
+                              animationFillMode: "both",
+                            }}
+                          >
                             <Input
                               {...field}
                               placeholder="Apellido"
@@ -165,7 +186,14 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                         control={control}
                         rules={rules.birthdate}
                         render={({ field }) => (
-                          <div>
+                          <div
+                            className="animate-fadeIn"
+                            style={{
+                              animationDuration: "1s",
+                              animationDelay: "0.1s",
+                              animationFillMode: "both",
+                            }}
+                          >
                             <Input
                               {...field}
                               placeholder="Cumpleaños"
@@ -188,7 +216,14 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                         control={control}
                         rules={rules.commercialName}
                         render={({ field }) => (
-                          <div>
+                          <div
+                            className="animate-fadeIn"
+                            style={{
+                              animationDuration: "0.7s",
+                              animationDelay: "0.4s",
+                              animationFillMode: "both",
+                            }}
+                          >
                             <Input
                               {...field}
                               placeholder="Nombre Comercial"
@@ -207,7 +242,14 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                         control={control}
                         rules={rules.incorporationDate}
                         render={({ field }) => (
-                          <div>
+                          <div
+                            className="animate-fadeIn"
+                            style={{
+                              animationDuration: "0.90s",
+                              animationDelay: "0.15s",
+                              animationFillMode: "both",
+                            }}
+                          >
                             <Input
                               {...field}
                               placeholder="Fecha de constitución"
@@ -227,7 +269,14 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                         control={control}
                         rules={rules.businessType}
                         render={({ field }) => (
-                          <div>
+                          <div
+                            className="animate-fadeIn"
+                            style={{
+                              animationDuration: "1.1s",
+                              animationDelay: "0s",
+                              animationFillMode: "both",
+                            }}
+                          >
                             <Input {...field} placeholder="Giro" label="Giro" />
                             {errors.businessType && (
                               <p className="text-red-500 text-sm mt-2 ml-1">
@@ -244,10 +293,10 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
             </ModalBody>
             <ModalFooter>
               <Button color="danger" variant="light" onPress={onClose}>
-                Close
+                Cerrar
               </Button>
               <Button color="primary" type="submit" isDisabled={hasErrors()}>
-                Submit
+                Crear Usuario
               </Button>
             </ModalFooter>
           </form>
