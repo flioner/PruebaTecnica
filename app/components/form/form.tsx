@@ -128,7 +128,11 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                         rules={rules.name}
                         render={({ field }) => (
                           <div>
-                            <Input {...field} placeholder="Name" label="Name" />
+                            <Input
+                              {...field}
+                              placeholder="Nombre"
+                              label="Nombre"
+                            />
                             {errors.name && (
                               <p className="text-red-500 text-sm mt-1">
                                 {errors.name.message}
@@ -145,8 +149,8 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                           <div>
                             <Input
                               {...field}
-                              placeholder="Surname"
-                              label="Surname"
+                              placeholder="Apellido"
+                              label="Apellido"
                             />
                             {errors.surname && (
                               <p className="text-red-500 text-sm mt-1">
@@ -164,8 +168,8 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                           <div>
                             <Input
                               {...field}
-                              placeholder="Birthdate"
-                              label="Birthdate"
+                              placeholder="Cumpleaños"
+                              label="Cumpleaños"
                               type="date"
                             />
                             {errors.birthdate && (
@@ -187,8 +191,8 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                           <div>
                             <Input
                               {...field}
-                              placeholder="Commercial Name"
-                              label="Commercial Name"
+                              placeholder="Nombre Comercial"
+                              label="Nombre Comercial"
                             />
                             {errors.commercialName && (
                               <p className="text-red-500 text-sm mt-2 ml-1">
@@ -206,8 +210,8 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                           <div>
                             <Input
                               {...field}
-                              placeholder="Incorporation Date"
-                              label="Incorporation Date"
+                              placeholder="Fecha de constitución"
+                              label="Fecha de constitución"
                               type="date"
                             />
                             {errors.incorporationDate && (
@@ -224,11 +228,7 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                         rules={rules.businessType}
                         render={({ field }) => (
                           <div>
-                            <Input
-                              {...field}
-                              placeholder="Business Type"
-                              label="Business Type"
-                            />
+                            <Input {...field} placeholder="Giro" label="Giro" />
                             {errors.businessType && (
                               <p className="text-red-500 text-sm mt-2 ml-1">
                                 {errors.businessType.message}

@@ -53,24 +53,37 @@ export const rules = {
       }
     },
   },
-
   name: {
-    required: "Name is required",
+    required: "El nombre es obligatorio",
+    validate: (value: string) => {
+      if (/\d/.test(value)) {
+        return "El nombre no debe contener números";
+      }
+      return true;
+    },
   },
+
   surname: {
-    required: "Surname is required",
+    required: "El apellido es obligatorio",
+    validate: (value: string) => {
+      if (/\d/.test(value)) {
+        return "El apellido no debe contener números";
+      }
+      return true;
+    },
   },
+
   birthdate: {
-    required: "Birthdate is required",
+    required: "El cumpleaños es obligatorio",
   },
   commercialName: {
-    required: "Commercial Name is required",
+    required: "El nombre comercial es obligatorio",
   },
   incorporationDate: {
-    required: "Incorporation Date is required",
+    required: "La fecha de constitución es obligatoria",
   },
   businessType: {
-    required: "Business Type is required",
+    required: "El giro de negocio es obligatorio",
   },
   getRfcValidationRules: (rfcValue: string) => {
     return rfcValue?.toUpperCase()?.endsWith("X")
