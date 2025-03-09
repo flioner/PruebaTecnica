@@ -54,7 +54,6 @@ export default function Home() {
         setSelectedTable={setSelectedTable}
         onOpen={onOpen} /* Controla al Modal de Agregar Usuario*/
       />
-
       <div className="p-5">
         {selectedTable === "fisica" ? (
           <FisicaTable key={count} data={fisicaData} setRefetch={setRefetch} />

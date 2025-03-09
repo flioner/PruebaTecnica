@@ -76,7 +76,7 @@ export default function DataTable({ columns, data, onDelete }: DataTableProps) {
                 return (
                   <TableCell>
                     <Button
-                      className="w-fit bg-transparent text-red-500"
+                      className="w-fit bg-transparent text-red"
                       onPress={() => onDelete(item)}
                     >
                       <DeleteIcon />

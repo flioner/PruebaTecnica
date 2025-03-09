@@ -11,6 +11,7 @@ import {
 } from "@heroui/react";
 import { rules } from "./rules";
 import api from "@/app/api/api";
+
 interface FormProps {
   isOpen: boolean;
   onOpenChange: (isOpen: boolean) => void;
@@ -45,7 +46,6 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
   const isRfcComplete = rfcValue?.length >= 10;
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
-    /* Este codigo sería más simple usando una api de verdad*/
     if (isFisica) {
       const fisicaData = {
         name: data.name ?? "",
@@ -71,7 +71,6 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
   };
 
   const hasErrors = () => {
-    /* Checa si hay errores, se usa para habilitar y deshabilitar el boton de sumbit*/
     const visibleErrors: string[] = [];
 
     if (errors.rfc) visibleErrors.push("rfc");
@@ -99,7 +98,6 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
             <ModalHeader>Añadir Usuario</ModalHeader>
             <ModalBody className="flex flex-col gap-4">
               <Controller
-                /* Primer Input Esencial: RFC */
                 name="rfc"
                 control={control}
                 rules={rules.rfc}
@@ -120,10 +118,9 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                 )}
               />
 
-              {isRfcComplete /* Si ya llenó el RFC sabemos si es persona Fisica o Moral */ && (
+              {isRfcComplete && (
                 <div className="flex flex-col gap-4">
                   {isFisica ? (
-                    /* Para Persona Fisica */
                     <>
                       <Controller
                         name="name"
@@ -169,6 +166,7 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                               {...field}
                               placeholder="Birthdate"
                               label="Birthdate"
+                              type="date"
                             />
                             {errors.birthdate && (
                               <p className="text-red-500 text-sm mt-1">
@@ -180,7 +178,6 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                       />
                     </>
                   ) : (
-                    /* Para Persona Moral */
                     <>
                       <Controller
                         name="commercialName"
@@ -211,6 +208,7 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
                               {...field}
                               placeholder="Incorporation Date"
                               label="Incorporation Date"
+                              type="date"
                             />
                             {errors.incorporationDate && (
                               <p className="text-red-500 text-sm mt-2 ml-1">
