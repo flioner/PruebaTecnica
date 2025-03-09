@@ -3,15 +3,20 @@ import React from "react";
 import DataTable from "./dataTable";
 import { Button } from "@heroui/button";
 import api from "@/app/api/api";
+import DeleteButton from "./components/deleteButton";
 
 const columns = [
-  { key: "name", label: "Nombre" },
-  { key: "surname", label: "Apellidos" },
-  { key: "birthdate", label: "Fecha de nacimiento" },
-  { key: "rfc", label: "RFC" },
+  { key: "name", label: "Nombre", sortable: true },
+  { key: "surname", label: "Apellidos", sortable: true },
+  { key: "birthdate", label: "Fecha de nacimiento", sortable: true },
+  { key: "rfc", label: "RFC", sortable: true },
   {
     key: "actions",
     label: "Acciones",
+    sortable: false,
+    render: (item: any, onDelete: (row: any) => void) => (
+      <DeleteButton item={item} onDelete={() => onDelete(item)} />
+    ),
   },
 ];
 

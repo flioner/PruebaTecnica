@@ -2,15 +2,20 @@
 import React from "react";
 import DataTable from "./dataTable";
 import api from "@/app/api/api";
+import DeleteButton from "./components/deleteButton";
 
 const columns = [
-  { key: "commercialName", label: "Nombre comercial" },
-  { key: "incorporationDate", label: "Fecha de constitución" },
-  { key: "businessType", label: "Giro" },
-  { key: "rfc", label: "RFC" },
+  { key: "commercialName", label: "Nombre comercial", sortable: true },
+  { key: "incorporationDate", label: "Fecha de constitución", sortable: true },
+  { key: "businessType", label: "Giro", sortable: true },
+  { key: "rfc", label: "RFC", sortable: true },
   {
     key: "actions",
     label: "Acciones",
+    sortable: false,
+    render: (item: any, onDelete: (row: any) => void) => (
+      <DeleteButton item={item} onDelete={() => onDelete(item)} />
+    ),
   },
 ];
 
