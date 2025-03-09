@@ -48,7 +48,7 @@ export default function Home() {
   /* Fin de Sección de API simualda*/
 
   return (
-    <div>
+    <div className="max-w-[1800px] mx-auto">
       <Navbar
         selectedTable={selectedTable}
         setSelectedTable={setSelectedTable}
@@ -61,7 +61,6 @@ export default function Home() {
           <MoralTable key={count} data={moralData} setRefetch={setRefetch} />
         )}
       </div>
-
       <Form
         isOpen={isOpen}
         setRefetch={setRefetch}
