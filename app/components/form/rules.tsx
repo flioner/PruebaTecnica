@@ -55,8 +55,8 @@ export const rules = {
   },
   name: {
     required: "El nombre es obligatorio",
-    validate: (value: string) => {
-      if (/\d/.test(value)) {
+    validate: (value: string | undefined) => {
+      if (value && /\d/.test(value)) {
         return "El nombre no debe contener números";
       }
       return true;
@@ -65,8 +65,8 @@ export const rules = {
 
   surname: {
     required: "El apellido es obligatorio",
-    validate: (value: string) => {
-      if (/\d/.test(value)) {
+    validate: (value: string | undefined) => {
+      if (value && /\d/.test(value)) {
         return "El apellido no debe contener números";
       }
       return true;
