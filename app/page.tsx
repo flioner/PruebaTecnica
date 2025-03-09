@@ -34,7 +34,6 @@ export default function Home() {
   useEffect(() => {
     /* Como no es una API de verdad, hacemos el refetch con useEffect y useState cuando le damos sumbit*/
     if (refetch.shouldRefresh) {
-      setCount(count + 1);
       if (refetch.modifiedTable === "fisica") {
         setFisicaData(api.getFisicaData()); // Actualizamos Datos
         setSelectedTable("fisica"); // Mostramos la tabla correcta
@@ -43,6 +42,7 @@ export default function Home() {
         setSelectedTable("moral");
       }
       setRefetch({ modifiedTable: "", shouldRefresh: false });
+      setCount(count + 1);
     }
   }, [refetch]);
   /* Fin de Sección de API simualda*/
@@ -57,9 +57,9 @@ export default function Home() {
 
       <div className="p-5">
         {selectedTable === "fisica" ? (
-          <FisicaTable key={count} data={fisicaData} />
+          <FisicaTable key={count} data={fisicaData} setRefetch={setRefetch} />
         ) : (
-          <MoralTable key={count} data={moralData} />
+          <MoralTable key={count} data={moralData} setRefetch={setRefetch} />
         )}
       </div>
 

@@ -36,7 +36,7 @@ const api = {
     return moralData;
   },
 
-  removeData: (key: string) => {
+  removeMoralData: (key: string) => {
     let moralData = getDataFromLocalStorage("moralData");
     moralData = moralData.filter((item: { key: string }) => item.key !== key);
     setDataToLocalStorage("moralData", moralData);

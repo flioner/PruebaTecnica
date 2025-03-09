@@ -34,13 +34,14 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
     control,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
     mode: "onChange",
   });
 
   const rfcValue = watch("rfc");
-  const isFisica = rfcValue?.toUpperCase()?.endsWith("X");
+  const isFisica = /^[A-Z]{4}/i.test(rfcValue);
   const isRfcComplete = rfcValue?.length >= 10;
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
@@ -65,7 +66,7 @@ const Form: React.FC<FormProps> = ({ isOpen, onOpenChange, setRefetch }) => {
       api.addMoralData(moralData);
       setRefetch({ modifiedTable: "moral", shouldRefresh: true });
     }
-    console.log("refetching");
+    reset();
     onOpenChange(false);
   };
 
