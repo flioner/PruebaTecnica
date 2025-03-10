@@ -10,7 +10,7 @@ Desarrollar una página en React (opcional Next.js) que administre información 
 
 ## Demo en linea
 
-Hosteado en Vercel. [capitalx.fabianlioner.com](capitalx.fabianlioner.com)
+Hosteado en Vercel. [capitalx.fabianlioner.com](https://capitalx.fabianlioner.com)
 
 ## Info
 
